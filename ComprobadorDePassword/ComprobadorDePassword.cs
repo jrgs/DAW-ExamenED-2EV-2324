@@ -27,7 +27,7 @@ namespace ComprobadorDePassword
         {
             pwd = p;
 
-            if (pwd == null || pwd.Length <= 0)
+            if (pwd==null || pwd.Length<=0)
                 return -1; // Si la contraseña es nula o vacía, devolvemos un código de error
 
             if (pwd.Length < 6)
@@ -39,8 +39,7 @@ namespace ComprobadorDePassword
             bool nums = false;
             bool length = false;
 
-            if (pwd.Length > 12)
-                length = true;
+            if (pwd.Length > 12) length = true;
 
             // Recorremos la cadena buscando minúsculas, mayúsculas y números
             //
@@ -48,21 +47,21 @@ namespace ComprobadorDePassword
             {
                 if (char.IsLower(c))
                 {
-                    mins = true;
+                    mins=true;
                 }
             }
             foreach (char c in pwd)
             {
                 if (char.IsUpper(c))
                 {
-                    mays = true;
+                    mays=true;
                 }
             }
             foreach (char c in pwd)
             {
                 if (char.IsDigit(c))
                 {
-                    nums = true;
+                    nums=true;
                 }
             }
 
@@ -71,7 +70,7 @@ namespace ComprobadorDePassword
             // 3: fuerte
             // 2: normal
             // 1: débil
-            int f = 0;
+            int f=0;
             if (mins) f++;
             if (mays) f++;
             if (nums) f++;
