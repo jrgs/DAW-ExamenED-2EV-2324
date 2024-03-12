@@ -9,59 +9,59 @@ namespace ComprobadorDePassword
     using System;
     using System.Text.RegularExpressions;
 
-    public class comprobadorDePassword
+    public class ComprobadorDePassword
     {
-        public string pwd;
+        public string password;
 
         private bool mins;
         private bool mays;
         private bool nums;
         private bool length;
 
-        public comprobadorDePassword()
+        public ComprobadorDePassword()
         {
             mins = mays = nums = length = false;
         }
 
-        public int test(string p)
+        public int Test(string password)
         {
-            pwd = p;
+            this.password = password;
 
-            if (pwd==null || pwd.Length<=0)
+            if (this.password == null || this.password.Length <= 0)
                 return -1; // Si la contraseña es nula o vacía, devolvemos un código de error
 
-            if (pwd.Length < 6)
+            if (this.password.Length < 6)
                 return 0; // No tiene la longitud mínima, error
 
 
-            bool mins = false;
-            bool mays = false;
-            bool nums = false;
+            bool minusculas = false;
+            bool mayusculas = false;
+            bool numeros = false;
             bool length = false;
 
-            if (pwd.Length > 12) length = true;
+            if (this.password.Length > 12) length = true;
 
             // Recorremos la cadena buscando minúsculas, mayúsculas y números
             //
-            foreach (char c in pwd)
+            foreach (char cadena in this.password)
             {
-                if (char.IsLower(c))
+                if (char.IsLower(cadena))
                 {
-                    mins=true;
+                    minusculas = true;
                 }
             }
-            foreach (char c in pwd)
+            foreach (char cadena in this.password)
             {
-                if (char.IsUpper(c))
+                if (char.IsUpper(cadena))
                 {
-                    mays=true;
+                    mayusculas = true;
                 }
             }
-            foreach (char c in pwd)
+            foreach (char cadena in this.password)
             {
-                if (char.IsDigit(c))
+                if (char.IsDigit(cadena))
                 {
-                    nums=true;
+                    numeros = true;
                 }
             }
 
@@ -70,10 +70,10 @@ namespace ComprobadorDePassword
             // 3: fuerte
             // 2: normal
             // 1: débil
-            int f=0;
-            if (mins) f++;
-            if (mays) f++;
-            if (nums) f++;
+            int f = 0;
+            if (minusculas) f++;
+            if (mayusculas) f++;
+            if (numeros) f++;
             if (length) f++;
 
             return f;
