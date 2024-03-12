@@ -9,37 +9,37 @@ namespace ComprobadorDePassword
     using System;
     using System.Text.RegularExpressions;
 
-    public class comprobadorDePassword
+    private const int Pws_Vacia = 0;
+    private const int Pws_Minima = 6;
+    private const int Pws_Protegida = 12;
+
+    public class Examen2EVDRL2324
     {
         public string pwd;
 
-        private bool mins;
-        private bool mays;
+        private bool minusculas;
+        private bool mayu;
         private bool nums;
         private bool length;
 
         public comprobadorDePassword()
         {
-            mins = mays = nums = length = false;
+            minusculas = mays = nums = length = false;
         }
 
         public int test(string p)
         {
             pwd = p;
 
-            if (pwd==null || pwd.Length<=0)
+            if (pwd == null || pwd.Length <= Pws_Vacia)
                 return -1; // Si la contraseña es nula o vacía, devolvemos un código de error
 
-            if (pwd.Length < 6)
+            if (pwd.Length < Pws_Minima)
                 return 0; // No tiene la longitud mínima, error
 
+            comprobadorDePassword();
 
-            bool mins = false;
-            bool mays = false;
-            bool nums = false;
-            bool length = false;
-
-            if (pwd.Length > 12) length = true;
+            if (pwd.Length > Pws_Protegida) length = true;
 
             // Recorremos la cadena buscando minúsculas, mayúsculas y números
             //
@@ -47,21 +47,21 @@ namespace ComprobadorDePassword
             {
                 if (char.IsLower(c))
                 {
-                    mins=true;
+                    minusculas = true;
                 }
             }
             foreach (char c in pwd)
             {
                 if (char.IsUpper(c))
                 {
-                    mays=true;
+                    mays = true;
                 }
             }
             foreach (char c in pwd)
             {
                 if (char.IsDigit(c))
                 {
-                    nums=true;
+                    nums = true;
                 }
             }
 
@@ -70,8 +70,8 @@ namespace ComprobadorDePassword
             // 3: fuerte
             // 2: normal
             // 1: débil
-            int f=0;
-            if (mins) f++;
+            int f = 0;
+            if (minusculas) f++;
             if (mays) f++;
             if (nums) f++;
             if (length) f++;
