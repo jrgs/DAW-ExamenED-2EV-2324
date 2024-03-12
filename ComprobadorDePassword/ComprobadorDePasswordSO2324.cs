@@ -51,13 +51,12 @@
         public bool Mayusculas { get => mayusculas; set => mayusculas=value; }
         public bool Numeros { get => numeros; set => numeros=value; }
         public bool Longitud { get => longitud; set => longitud=value; }
-        public ComprobadorDePasswordSO2324(bool minusculas)
+        public ComprobadorDePasswordSO2324()
         {
             minusculas = false;
             mayusculas = false;
             numeros = false;
             longitud = false;
-            this.minusculas=minusculas;
         }
         /// <summary>
         /// El método de la clase, compruebe la fuerza de la contraseña dada
