@@ -7,61 +7,81 @@ using System.Threading.Tasks;
 namespace ComprobadorDePassword
 {
     using System;
+    using System.CodeDom;
     using System.Text.RegularExpressions;
+    using System.Windows.Forms;
 
-    public class comprobadorDePassword
-    {
-        public string pwd;
+    public class comprobadorDePasswordAERG2324
+    {//AERG-2324.Se cambia a propiedad de  publica a privada
 
-        private bool mins;
-        private bool mays;
-        private bool nums;
+        private string password;//! AERG-2324.Nombres no significativo
+        private const int numerodoce = 12;//! AERG-2324. Declaramos las constantes
+        private const int numeroseis = 6;
+        private bool minusculas;
+        private bool maysculas;
+        private bool numeros;
         private bool length;
 
-        public comprobadorDePassword()
+        public comprobadorDePasswordAERG2324()
         {
-            mins = mays = nums = length = false;
+            //!AERG-2324.Se enumeran en diferentes lineas
+
+            minusculas = false;
+            maysculas = false;
+            numeros = false;
+            length = false;
         }
 
-        public int test(string p)
+        public string Password
         {
-            pwd = p;
+             get => password; 
+             set => password = value; 
+        }
 
-            if (pwd==null || pwd.Length<=0)
-                return -1; // Si la contraseña es nula o vacía, devolvemos un código de error
+        public int test(string palabra)//! AERG-2324.Se cambia el nombre por ser poco significativo 
+        {
+            Password = palabra;
 
-            if (pwd.Length < 6)
+            if (Password==null || Password.Length<=0)
+                //! AERG-22324. Cambiamos el valor -1 por un numero mágico
+              return -1; // Si la contraseña es nula o vacía, devolvemos un código de error
+
+            if (Password.Length < numeroseis)//!AERG-2324. Cambiamos el numero por ser numero mágico por una constante
                 return 0; // No tiene la longitud mínima, error
 
-
-            bool mins = false;
-            bool mays = false;
-            bool nums = false;
+            
+            bool minusculas = false;//! AERG-2324.Cambiamos de nuevo los nombres de delos campos 
+            bool mayusculas = false;
+            bool numeros = false;
             bool length = false;
-
-            if (pwd.Length > 12) length = true;
+            // AERG-2324. Se ordena la sentencia if
+            if (Password.Length > numerodoce)
+            {
+                length = true;
+            }
 
             // Recorremos la cadena buscando minúsculas, mayúsculas y números
             //
-            foreach (char c in pwd)
+            foreach (char c in Password)//! AERG-2324.Cambiamos el nombre por ser poco significtivo 
             {
                 if (char.IsLower(c))
                 {
-                    mins=true;
+                    //! AERG-2324.Se cambia elnombre de la variable por un nombre más significativo 
+                    minusculas = true;//! AERG-2324.Debe de haber un espacio entre igualdades
                 }
             }
-            foreach (char c in pwd)
+            foreach (char c in Password)
             {
                 if (char.IsUpper(c))
                 {
-                    mays=true;
+                    mayusculas = true;//! AERG-2324.Debe de haber un espacio entre igualdades
                 }
             }
-            foreach (char c in pwd)
+            foreach (char c in Password)
             {
                 if (char.IsDigit(c))
                 {
-                    nums=true;
+                    numeros = true;//! AERG-2324.Debe de haber un espacio entre igualdades
                 }
             }
 
@@ -70,11 +90,25 @@ namespace ComprobadorDePassword
             // 3: fuerte
             // 2: normal
             // 1: débil
-            int f=0;
-            if (mins) f++;
-            if (mays) f++;
-            if (nums) f++;
-            if (length) f++;
+            //! AERG-2324.Se han de separar la igualdad y marcar con llaves
+            
+            int f = 0;
+            if (minusculas)
+            {
+                f++;
+            }
+            if (mayusculas)
+            {
+                f++;
+            }
+            if (numeros)
+            {
+                f++;
+            }
+            if (length)
+            {
+                f++;
+            }
 
             return f;
         }
