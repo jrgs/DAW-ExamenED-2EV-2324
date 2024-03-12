@@ -9,11 +9,12 @@ namespace PruebaPassword
     public class PruebaPasswordTest
     {
         [TestMethod]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void PasswordNoValida()
         {
             string password = "";
             ComprobadorDePassword.ComprobadorDePassword miPrueba = new ComprobadorDePassword.ComprobadorDePassword();
-            Assert.AreEqual(-1, miPrueba.Test(password));
+            Assert.AreEqual(c, miPrueba.Test(password));
         }
 
         [TestMethod]

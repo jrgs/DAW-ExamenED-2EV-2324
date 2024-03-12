@@ -44,7 +44,7 @@ namespace ComprobadorDePassword
             this.Password = password;
             ///<summary>Si la contraseña es nula o vacía, devolvemos un código de error</summary>
             if (this.Password == null || this.Password.Length <= 0)
-                throw new ArgumentOutOfRangeException(ERR_CLAVE_NULA_O_VACIA);
+                throw new ArgumentNullException(ERR_CLAVE_NULA_O_VACIA);
             ///<summary>Si no tiene la longitud mínima, error</summary>
             if (this.Password.Length < 6)
                 throw new ArgumentOutOfRangeException(ERR_CLAVE_MUY_CORTA);
