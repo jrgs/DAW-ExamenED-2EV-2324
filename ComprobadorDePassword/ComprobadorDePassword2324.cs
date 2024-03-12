@@ -3,66 +3,48 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.RegularExpressions;
+using System;
 
 namespace ComprobadorDePassword
 {
-    using System;
-    using System.Text.RegularExpressions;
-
-    public class comprobadorDePassword
+    public class ComprobadorDePassword
     {
-        public string pwd;
+        private string password;
+        private bool tieneMinusculas;
+        private bool tieneMayusculas;
+        private bool tieneNumeros;
+        private bool tieneLongitudValida;
 
-        private bool mins;
-        private bool mays;
-        private bool nums;
-        private bool length;
-
-        public comprobadorDePassword()
+        public ComprobadorDePassword()
         {
-            mins = mays = nums = length = false;
+            tieneMinusculas = tieneMayusculas = tieneNumeros = tieneLongitudValida = false;
         }
 
-        public int test(string p)
+        public int Probar(string nuevaContraseña)
         {
-            pwd = p;
+            password = nuevaContraseña;
 
-            if (pwd==null || pwd.Length<=0)
+            if (string.IsNullOrEmpty(password))
                 return -1; // Si la contraseña es nula o vacía, devolvemos un código de error
 
-            if (pwd.Length < 6)
+            if (password.Length < 6)
                 return 0; // No tiene la longitud mínima, error
 
-
-            bool mins = false;
-            bool mays = false;
-            bool nums = false;
-            bool length = false;
-
-            if (pwd.Length > 12) length = true;
+            tieneMinusculas = false;
+            tieneMayusculas = false;
+            tieneNumeros = false;
+            tieneLongitudValida = password.Length > 12;
 
             // Recorremos la cadena buscando minúsculas, mayúsculas y números
-            //
-            foreach (char c in pwd)
+            foreach (char c in password)
             {
                 if (char.IsLower(c))
-                {
-                    mins=true;
-                }
-            }
-            foreach (char c in pwd)
-            {
-                if (char.IsUpper(c))
-                {
-                    mays=true;
-                }
-            }
-            foreach (char c in pwd)
-            {
-                if (char.IsDigit(c))
-                {
-                    nums=true;
-                }
+                    tieneMinusculas = true;
+                else if (char.IsUpper(c))
+                    tieneMayusculas = true;
+                else if (char.IsDigit(c))
+                    tieneNumeros = true;
             }
 
             // Calculamos el nivel de fortaleza
@@ -70,13 +52,13 @@ namespace ComprobadorDePassword
             // 3: fuerte
             // 2: normal
             // 1: débil
-            int f=0;
-            if (mins) f++;
-            if (mays) f++;
-            if (nums) f++;
-            if (length) f++;
+            int fortaleza = 0;
+            if (tieneMinusculas) fortaleza++;
+            if (tieneMayusculas) fortaleza++;
+            if (tieneNumeros) fortaleza++;
+            if (tieneLongitudValida) fortaleza++;
 
-            return f;
+            return fortaleza;
         }
     }
 }
