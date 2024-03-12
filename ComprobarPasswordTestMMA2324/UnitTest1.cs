@@ -8,21 +8,40 @@ namespace ComprobarPasswordTestMMA2324
     public class UnitTest1
     {
         [TestMethod]
-        [DataRow("", -1)]
-        public void PasswordNulo(string password, int resultadoEsperado)
+        [DataRow("")]
+        public void PasswordNulo(string password)
         {
             ComprobadorDePasswordMMA2324 comprobar = new ComprobadorDePasswordMMA2324();
 
-            Assert.AreEqual(resultadoEsperado, comprobar.TestValidacionPassword(password), "Error");
+            try
+            {
+                comprobar.TestValidacionPassword(password); 
+            }
+            catch (ArgumentOutOfRangeException Error)
+            {
+                StringAssert.Contains(Error.Message, comprobar.ERROR_PASSWORD_VACIO);
+                return;
+            }
+            Assert.Fail("Se debería haber producido una excepción.");
         }
 
         [TestMethod]
-        [DataRow("abc", 0)]
-        public void PasswordMenorQue6(string password, int resultadoEsperado)
+        [DataRow("abc")]
+        public void PasswordMenorQue6(string password)
         {
             ComprobadorDePasswordMMA2324 comprobar = new ComprobadorDePasswordMMA2324();
 
-            Assert.AreEqual(resultadoEsperado, comprobar.TestValidacionPassword(password), "Error");
+            try
+            {
+                comprobar.TestValidacionPassword(password);
+            }
+            catch (ArgumentOutOfRangeException Error)
+            {
+                StringAssert.Contains(Error.Message, comprobar.ERROR_PASSWORD_MENOR6);
+                return;
+            }
+            Assert.Fail("Se debería haber producido una excepción.");
+
         }
 
         [TestMethod]
