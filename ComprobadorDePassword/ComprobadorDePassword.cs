@@ -4,26 +4,51 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ComprobadorDePassword
+namespace ComprobadorDePasswordJPP2324
 {
     using System;
     using System.Text.RegularExpressions;
 
-    public class comprobadorDePassword
+    public class comprobadorDePasswordJPP234
     {
-        public string pwd;
+        public const string CONTRASEÑAINCORRECTA = "La contraseña introducida no es valida";
+        public const string CONTRASEÑAVACIA = "lA contraseña no puede quedarse vacia.";
 
+        private string pwd;
         private bool mins;
         private bool mays;
         private bool nums;
         private bool length;
 
-        public comprobadorDePassword()
+        public comprobadorDePasswordJPP2324(string contraseña)
         {
+            contraseña = "";
             mins = mays = nums = length = false;
+            
         }
 
-        public int test(string p)
+        public string Pwd
+        {   get => pwd; 
+            set => pwd = value;
+        }
+        public bool Mins {
+            get => mins; 
+            set => mins = value;
+        }
+        public bool Mays 
+        { get => mays; 
+            set => mays = value;
+        }
+        public bool Nums 
+        { get => nums;
+            set => nums = value;
+        }
+        public bool Length 
+        { get => length; 
+            set => length = value;
+        }
+
+        public int ValidacionContraseña(string p)
         {
             pwd = p;
 
@@ -61,7 +86,7 @@ namespace ComprobadorDePassword
             {
                 if (char.IsDigit(c))
                 {
-                    nums=true;
+                    nums = true;
                 }
             }
 

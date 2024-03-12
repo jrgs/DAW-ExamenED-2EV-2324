@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ComprobadorDePassword
+namespace ComprobadorDePasswordJPP2324
 {
-    public partial class Form1 : Form
+    public partial class Examen2EVJPP2324 : Form
     {
-        public Form1()
+        public Examen2EVJPP2324()
         {
             InitializeComponent();
         }
