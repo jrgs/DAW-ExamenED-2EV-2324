@@ -11,58 +11,69 @@ namespace ComprobadorDePassword
 
     public class ComprobadorDePasswordMMA2324
     {
-        public string pwd;
-        private bool mins;
-        private bool mays;
-        private bool nums;
-        private bool length;
+        private string password;
+        private bool minusculas;
+        private bool mayusculas;
+        private bool numeros;
+        private bool passwordLength;
+        public string ERROR_PASSWORD_VACIO = "La contraseña no puede estar vacía.";
+        public string ERROR_PASSWORD_MENOR6 = "Contraseña demasiado corta";
 
         public ComprobadorDePasswordMMA2324()
         {
-            mins = mays = nums = length = false;
+            minusculas = mayusculas = numeros = passwordLength = false;
         }
 
-        public int Test(string p)
+        public string Password
         {
-            pwd = p;
+            get => password;
+            set => password = value;
+        }
 
-            if (pwd==null || pwd.Length<=0)
-                return -1; // Si la contraseña es nula o vacía, devolvemos un código de error
+        public int TestValidacionPassword(string password)
+        {
+            Password = password;
 
-            if (pwd.Length < 6)
-                return 0; // No tiene la longitud mínima, error
+            if (Password == null || Password.Length <= 0)
+            {
+                throw new ArgumentOutOfRangeException(ERROR_PASSWORD_VACIO);
+            }
 
+            if (Password.Length < 6)
+            {
+                throw new ArgumentOutOfRangeException(ERROR_PASSWORD_MENOR6);
+            }
 
             bool mins = false;
             bool mays = false;
             bool nums = false;
             bool length = false;
 
-            if (pwd.Length > 12) length = true;
+            if (Password.Length > 12) length = true;
 
             // Recorremos la cadena buscando minúsculas, mayúsculas y números
             //
-            foreach (char c in pwd)
+            foreach (char c in Password)
             {
                 if (char.IsLower(c))
                 {
-                    mins=true;
+                    mins = true;
                 }
             }
 
-            foreach (char c in pwd)
+            foreach (char c in Password)
             {
                 if (char.IsUpper(c))
                 {
-                    mays=true;
+                    mays = true;
                 }
             }
 
-            foreach (char c in pwd)
+            foreach (char c in Password)
             {
                 if (char.IsDigit(c))
                 {
-                    nums=true;
+                    nums = true;
                 }
             }
 

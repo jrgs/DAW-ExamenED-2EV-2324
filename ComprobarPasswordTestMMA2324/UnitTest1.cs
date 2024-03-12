@@ -13,7 +13,7 @@ namespace ComprobarPasswordTestMMA2324
         {
             ComprobadorDePasswordMMA2324 comprobar = new ComprobadorDePasswordMMA2324();
 
-            Assert.AreEqual(resultadoEsperado, comprobar.Test(password), "Error");
+            Assert.AreEqual(resultadoEsperado, comprobar.TestValidacionPassword(password), "Error");
         }
 
         [TestMethod]
@@ -22,7 +22,7 @@ namespace ComprobarPasswordTestMMA2324
         {
             ComprobadorDePasswordMMA2324 comprobar = new ComprobadorDePasswordMMA2324();
 
-            Assert.AreEqual(resultadoEsperado, comprobar.Test(password), "Error");
+            Assert.AreEqual(resultadoEsperado, comprobar.TestValidacionPassword(password), "Error");
         }
 
         [TestMethod]
@@ -31,7 +31,7 @@ namespace ComprobarPasswordTestMMA2324
         {
             ComprobadorDePasswordMMA2324 comprobar = new ComprobadorDePasswordMMA2324();
 
-            Assert.AreEqual(resultadoEsperado, comprobar.Test(password), "Error");
+            Assert.AreEqual(resultadoEsperado, comprobar.TestValidacionPassword(password), "Error");
         }
     }
 }
