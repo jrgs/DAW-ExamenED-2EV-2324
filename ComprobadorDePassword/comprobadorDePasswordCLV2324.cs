@@ -5,6 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace ComprobadorDePassword
+///<summary>
+/// <para>Clase que comprueba passwords</para>
+///</summary>
 {
     using System;
     using System.Text.RegularExpressions;
@@ -16,6 +19,9 @@ namespace ComprobadorDePassword
         public bool mays;
         public bool nums;
         public bool length;
+        /// <summary>
+        /// booleanos que comprueban si hay minúsculas, mayúsculas, longitud y números
+        /// </summary>
 
         public ComprobadorDePasswordCLV2324()
         {
@@ -23,6 +29,10 @@ namespace ComprobadorDePassword
         }
 
         public int Test(string p)
+            ///<summary>
+            ///Cuando las contraseñas son nulas, están vacías o no tienen la longitud pedida, se devuelve un mensaje de error
+            ///</summary>
+            
         {
             pwd = p;
 
@@ -32,17 +42,21 @@ namespace ComprobadorDePassword
             if (pwd.Length < 6)
                 return 0; // No tiene la longitud mínima, error
 
-
             bool lowerCase = false;
             bool upperCase = false;
             bool numbers = false;
             bool length = false;
 
             if (pwd.Length > 12) length = true;
-
+            ///<summary>
+            ///Si la longitud es mayor a 12 caracteres, será válida
+            ///</summary>
             // Recorremos la cadena buscando minúsculas, mayúsculas y números
             //
             foreach (char c in pwd)
+                ///<summary>
+                ///Comprobación de minúsculas y mayúsculas
+                ///</summary>
             {
                 if (char.IsLower(c))
                 {
@@ -69,7 +83,10 @@ namespace ComprobadorDePassword
             // 3: fuerte
             // 2: normal
             // 1: débil
-            int f=0;
+            ///<summary>Cálculo de la fortaleza de la contraseña
+            /// <para>El valor del int f=0; indica condicionales en cuanto a la fortaleza de la contraseña</para>
+            ///</summary>
+            int f =0;
             if (lowerCase) f++;
             if (upperCase) f++;
             if (numbers) f++;
