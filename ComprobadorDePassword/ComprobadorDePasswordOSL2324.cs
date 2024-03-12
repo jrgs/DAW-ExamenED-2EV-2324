@@ -7,22 +7,44 @@
         private bool mMayuscula;
         private bool mNumero;
         private bool mLongitud;
+        /// <summary>
+        /// Método público del miembro mPassword
+        /// <value>Establece un string con la contraseña </value>
+        /// </summary>
         public string password 
-            { get => password; 
-              set => password = value; }
+            { get => mPassword; 
+              set => mPassword = value; }
+        /// <summary>
+        /// Método público del miembro mMinuscula
+        /// <value>Establece un valor falso o verdadero</value>
+        /// </summary>
         public bool minuscula 
             { get => mMinuscula;
               set => mMinuscula = value; }
+        /// <summary>
+        /// Método público del miembro mMayuscula
+        /// <value>Establece un valor falso o verdadero</value>
+        /// </summary>
         public bool mayuscula 
             { get => mMayuscula; 
               set => mMayuscula = value; }
+        /// <summary>
+        /// Método público del miembro mNumero
+        /// <value>Establece un valor falso o verdadero</value>
+        /// </summary>
         public bool numero 
             { get => mNumero;
               set => mNumero = value; }
+        /// <summary>
+        /// Método público del miembro mLongitud
+        /// <value>Establece un valor falso o verdadero</value>
+        /// </summary>
         public bool longitud 
             { get => mLongitud;
               set => mLongitud = value; }
-
+        /// <summary>
+        /// Constructor que inicia los metodos en false
+        /// </summary>
         public comprobadorDePassword()
         {
             minuscula = false;
