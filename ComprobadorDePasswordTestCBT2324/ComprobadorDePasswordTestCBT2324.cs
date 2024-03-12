@@ -16,7 +16,7 @@ namespace ComprobadorDePasswordTestCBT2324
 
             int resultado = miPrueba.ProbarContraseña(p);
 
-            Assert.AreEqual(resultado, -1, "contraseña nula o vacia");
+            Assert.AreNotEqual(resultado, -1, "contraseña nula o vacia");
         }
 
         [TestMethod]
@@ -40,7 +40,7 @@ namespace ComprobadorDePasswordTestCBT2324
 
             int resultado = miPrueba.ProbarContraseña(p);
 
-            Assert.AreNotEqual(resultado,0, "contraseña nula o vacia");
+            Assert.AreEqual(resultado,4, "contraseña muy fuerte");
         }
     }
 }

@@ -8,21 +8,42 @@ namespace ComprobadorDePassword
 {
     using System;
     using System.Text.RegularExpressions;
-
+    /// <summary>
+    /// <para>Creamos la clase comprobadorDePassWord donde se pasa una contraseña</para>
+    /// <para>y comprobamos la fortaleza de la misma</para>
+    /// </summary>
     public class comprobadorDePassword
     {
+        /// <summary>
+        /// propiedadad de tipo string con la contraseña del usuario
+        /// </summary>
         private string contraseña;
-
+        /// <summary>
+        /// propiedad de tipo bool para comprobar si contiene minusculas  la contraseña
+        /// </summary>
         private bool mins;
+        /// <summary>
+        /// propiedad de tipo bool comprobar si contiene mayusculas  la contraseña
+        /// </summary>
         private bool mays;
+        /// <summary>
+        /// propiedad de tipo bool con el numero de numeros que contiene de la contraseña
+        /// </summary>
         private bool nums;
+        /// <summary>
+        /// propiedad de tipo bool con el numero de minusculas de la contraseña
+        /// </summary>
         private bool length;
 
         public string Contraseña { get => contraseña; set => contraseña = value; }
+        public bool Mins { get => mins; set => mins = value; }
+        public bool Mays { get => mays; set => mays = value; }
+        public bool Nums { get => nums; set => nums = value; }
+        public bool Length { get => length; set => length = value; }
 
         public comprobadorDePassword()
         {
-            mins = mays = nums = length = false;
+            Mins = Mays = Nums = Length = false;
         }
 
 
