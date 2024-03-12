@@ -19,7 +19,7 @@ namespace ComprobadorDePassword
 
         private void btnComprobar_click(object sender, EventArgs e)
         {
-            comprobadorDePasswordCNB2324 miComprobador = new comprobadorDePasswordCNB2324();
+            ComprobadorDePasswordCNB2324 miComprobador = new ComprobadorDePasswordCNB2324();
             int resultado = miComprobador.Test(txtPassword.Text);
             if (resultado < 0)
                 MessageBox.Show("La contraseña no puede estar vacía");
