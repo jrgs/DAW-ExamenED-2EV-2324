@@ -17,14 +17,25 @@ namespace ComprobadorDePassword
         private bool mayusculas;
         private bool numeros;
         private bool length;
-
+        /// <summary>
+        /// Esto es el constructor
+        /// </summary>
         public comprobadorDePassword()
         {
             minusculas = mayusculas = numeros = length = false;
         }
-
+        /// <summary>
+        /// Esto es un método que realizará las comprobaciones sobre la contraseña
+        /// </summary>
+        /// <param name="contrasenya">contraseña es el parámetro que se introducirá desde el formulario</param>
+        /// <returns>Devuelve un valor que indica la fortaleza,siendo 4 muy fuerte y 1 débil</returns>
+        /// <exception cref="ArgumentNullException"> Excepción que devuelve cuando se introduce contraseña vacía</exception>
+        /// <exception cref="ArgumentOutOfRangeException">Excepción que devuelve cuando se introduce contraseña
+        /// de menos de 6 digitos</exception>
+        /// <paramref="constrasenya">este parámetro pasa la contraseña recibida en el form</paramref>
         public int Test(string contrasenya)
         {
+            
             password = contrasenya;
 
             if (password == null || password.Length <= 0)
@@ -33,7 +44,7 @@ namespace ComprobadorDePassword
             }
             if (password.Length < 6)
             {
-                throw new ArgumentNullException("La contraseña es nula o vacía");
+                throw new ArgumentOutOfRangeException("La contraseña es menor a 6 digitos");
             }
 
 
