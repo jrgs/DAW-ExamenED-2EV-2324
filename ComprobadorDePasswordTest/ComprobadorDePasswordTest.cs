@@ -11,14 +11,19 @@ namespace ComprobadorDePasswordTest
         [TestMethod]
         public void ErrorPasswordNula()
         {
-            int codigoErrorEsperado = -1;
-            int codigoObtenido;
 
             ComprobadorDePasswordCDJ2324 miPassword = new ComprobadorDePasswordCDJ2324();
+            try
+            {
+                miPassword.ComprobadorDePasswordTest("");
+            }
+            catch (ArgumentNullException e) {
+                StringAssert.Contains(e.Message, ComprobadorDePasswordCDJ2324.PASS_NULA);
+                return;
+            }
 
-            codigoObtenido = miPassword.ComprobadorDePasswordTest("");
 
-            Assert.AreEqual(codigoErrorEsperado, codigoObtenido);
+            Assert.Fail("no se obtubo el error esperado");
             
 
         }
@@ -26,14 +31,16 @@ namespace ComprobadorDePasswordTest
         [TestMethod]
         public void ErrorPasswordMuyCorta() 
         {  
-            int codigoErrorEsperado = 0;
-            int codigoObtenido;
-
             ComprobadorDePasswordCDJ2324 miPassword = new ComprobadorDePasswordCDJ2324();
-
-            codigoObtenido = miPassword.ComprobadorDePasswordTest("abc");
-
-            Assert.AreEqual(codigoErrorEsperado, codigoObtenido);
+            try
+            {
+                miPassword.ComprobadorDePasswordTest("abc");
+            }
+            catch (ArgumentOutOfRangeException e) {
+                StringAssert.Contains(e.Message, ComprobadorDePasswordCDJ2324.PASSWORD_CORTA);
+                return;
+            }
+            Assert.Fail("no se obtubo el error esperado");
         }
 
         [TestMethod]
