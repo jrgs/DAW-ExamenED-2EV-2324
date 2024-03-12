@@ -11,8 +11,11 @@ namespace ComprobadorDePasswordJPP2324
 
     public class comprobadorDePasswordJPP234
     {
+        
         public const string CONTRASEÑAINCORRECTA = "La contraseña introducida no es valida";
         public const string CONTRASEÑAVACIA = "lA contraseña no puede quedarse vacia.";
+        public const int MINIMO = 6;
+        public const int SEGURA = 12;
 
         private string pwd;
         private bool mins;
@@ -20,13 +23,17 @@ namespace ComprobadorDePasswordJPP2324
         private bool nums;
         private bool length;
 
+        /// <summary>
+        /// Constructor de la clase comprobadordepassword
+        /// </summary>
+        /// <param name="contraseña">indicamos la constraseña</param>
         public comprobadorDePasswordJPP2324(string contraseña)
         {
-            contraseña = "";
+            contraseña = this.pwd;
             mins = mays = nums = length = false;
             
         }
-
+        
         public string Pwd
         {   get => pwd; 
             set => pwd = value;
@@ -45,9 +52,12 @@ namespace ComprobadorDePasswordJPP2324
         }
         public bool Length 
         { get => length; 
-            set => length = value;
-        }
-
+            set => length = value; }
+        /// <summary>
+        /// Metodo que valida si una contraseña es correcta
+        /// </summary>
+        /// <param name="p">contraseña</param>
+        /// <returns>si es correcta o no</returns>
         public int ValidacionContraseña(string p)
         {
             pwd = p;
@@ -55,7 +65,7 @@ namespace ComprobadorDePasswordJPP2324
             if (pwd==null || pwd.Length<=0)
                 return -1; // Si la contraseña es nula o vacía, devolvemos un código de error
 
-            if (pwd.Length < 6)
+            if (pwd.Length < MINIMO)
                 return 0; // No tiene la longitud mínima, error
 
 
@@ -64,7 +74,7 @@ namespace ComprobadorDePasswordJPP2324
             bool nums = false;
             bool length = false;
 
-            if (pwd.Length > 12) length = true;
+            if (pwd.Length > SEGURA) length = true;
 
             // Recorremos la cadena buscando minúsculas, mayúsculas y números
             //
