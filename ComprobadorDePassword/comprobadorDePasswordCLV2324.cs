@@ -12,11 +12,10 @@ namespace ComprobadorDePassword
     public class ComprobadorDePasswordCLV2324
     {
         public string pwd;
-
-        private bool mins;
-        private bool mays;
-        private bool nums;
-        private bool length;
+        public bool mins;
+        public bool mays;
+        public bool nums;
+        public bool length;
 
         public ComprobadorDePasswordCLV2324()
         {
