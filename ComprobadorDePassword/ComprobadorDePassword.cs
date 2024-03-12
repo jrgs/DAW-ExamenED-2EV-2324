@@ -5,13 +5,19 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace ComprobadorDePassword
-{
+{   
+    
     using System;
     using System.Text.RegularExpressions;
-
+   
+    
     private const int Pws_Vacia = 0;
     private const int Pws_Minima = 6;
     private const int Pws_Protegida = 12;
+
+    ///<summary>
+    ///El programa va a realizar la comprobacion de contraselñas introducidas
+    ///</summary>
 
     public class Examen2EVDRL2324
     {
@@ -22,11 +28,23 @@ namespace ComprobadorDePassword
         private bool nums;
         private bool length;
 
+        ///<summary>
+        ///En este metodo cambia el valor de las variables
+        ///</summary>
+        ///<returns>Devuleve el valor false</returns>
         public comprobadorDePassword()
         {
             minusculas = mays = nums = length = false;
         }
 
+        ///<summary>
+        ///Realizamos la comprnacion de los valores de la contraseñas
+        ///</summary>
+        ///<remarks>El metodo esta sobrecargado</remarks>
+        ///<returns>Nos devuelve el nivel de protecion de la contraseña</returns>
+        ///<param value="Islover>Parametro que indica si tiene caracteres en minuscula</param>
+        ///<param value="IsUpper>Parametro que indica si tiene caracteres en mayuscula</param>
+        ///<param value="Islover>Parametro que indica si contiene caracteres de digitos</param>
         public int test(string p)
         {
             pwd = p;
