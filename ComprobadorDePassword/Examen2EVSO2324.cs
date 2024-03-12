@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ComprobadorDePassword
 {
-    public partial class Form1 : Form
+    public partial class Examen2EVSO2324 : Form
     {
-        public Form1()
+        public Examen2EVSO2324()
         {
             InitializeComponent();
         }
