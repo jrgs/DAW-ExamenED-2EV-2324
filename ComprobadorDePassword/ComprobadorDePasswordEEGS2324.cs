@@ -8,6 +8,7 @@ namespace ComprobadorDePassword
 {
     using System;
     using System.Text.RegularExpressions;
+    using System.Windows.Forms;
 
     public class ComprobadorDePasswordEEGS2324
     {
@@ -18,25 +19,79 @@ namespace ComprobadorDePassword
         private bool mayuscula;
         private bool numeros;
         private bool longitud;
+        private const string PASSWORD_SIN_CARACTERES = "El password no tiene caracteres";
+        private const string PASSWORD_CORTO = "El password no es válido";
+
+        public bool Minuscula 
+        
+        {
+            get { return minuscula; }
+
+            set { minuscula = value; }
+        }
+        public bool Mayuscula 
+        {
+            get { return mayuscula; }
+
+            set { mayuscula = value; }
+        }
+        public bool Numeros 
+        {
+            get { return numeros; }
+
+            set { numeros = value; }
+        }
+        public bool Longitud 
+        {
+            get { return longitud; }
+
+            set { longitud = value; }
+        }
 
         public ComprobadorDePasswordEEGS2324()
         {
-            minuscula = false;
-            mayuscula = false;
-            numeros = false;
-            longitud = false;
+            Minuscula = false;
+            Mayuscula = false;
+            Numeros = false;
+            Longitud = false;
+        }
+
+        private bool ContrasenyaValidar(string password)
+        {
+            bool correcto = true;
+
+            if (this.password == null || this.password.Length <= 0)
+                throw new Exception(PASSWORD_SIN_CARACTERES); // Si la contraseña es nula o vacía, devolvemos un código de error
+
+            if (this.password.Length < 6)
+                throw new Exception(PASSWORD_CORTO); // No tiene la longitud mínima, error
+
+            return correcto;
         }
 
         public int Test(string password)
         {
             this.password = password;
 
-            if (this.password == null || this.password.Length <= 0)
-                return -1; // Si la contraseña es nula o vacía, devolvemos un código de error
+            try
+            {
+                bool passwordValida = ContrasenyaValidar(password);
+                
+            } catch (Exception e)
+            {
+                if (e.Message == PASSWORD_SIN_CARACTERES)
+                {
+                    MessageBox.Show("El password no tiene caracteres");
+                    return -1;
+                }
 
-            if (this.password.Length < 6)
-                return 0; // No tiene la longitud mínima, error
-
+                else
+                {
+                    MessageBox.Show("El password es corto");
+                    return 0;
+                }
+            }
+            
 
             bool minuscula = false;
             bool mayuscula = false;
