@@ -9,14 +9,13 @@ namespace comprobadorDePassword_test_EV2324
     public class UnitTest1
     {
         [TestMethod]
-        [DataRow ("contras")]
+        [DataRow("contras")]
         [DataRow("c0ntrase")]
         [DataRow("C0ntr@s3ñ@S3gur@)")]
 
         public void ComprobarPassword(string password)
         {
-            comprobadorDePassword comprobadorDePassword = new comprobadorDePassword();
-            comprobadorDePassword.Comprobar 
+ 
         }
     }
 }
