@@ -1,13 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ComprobadorDePassword2324
+﻿namespace ComprobadorDePassword2324
 {
-    using System;
-    using System.Text.RegularExpressions;
     /// <summary>
     /// La clase que compruebe el nivel de la fuerza de la contraseña.
     /// </summary>
@@ -36,7 +28,6 @@ namespace ComprobadorDePassword2324
     /// </valor>
     public class ComprobadorDePasswordSO2324
     {
-        public string password;
         /// <summary>
         /// Propiedad de la clase, que muestra, si la contraseña tiene minúsculas.
         /// </summary>
@@ -60,12 +51,13 @@ namespace ComprobadorDePassword2324
         public bool Mayusculas { get => mayusculas; set => mayusculas=value; }
         public bool Numeros { get => numeros; set => numeros=value; }
         public bool Longitud { get => longitud; set => longitud=value; }
-        public ComprobadorDePasswordSO2324()
+        public ComprobadorDePasswordSO2324(bool minusculas)
         {
             minusculas = false;
             mayusculas = false;
             numeros = false;
             longitud = false;
+            this.minusculas=minusculas;
         }
         /// <summary>
         /// El método de la clase, compruebe la fuerza de la contraseña dada
@@ -74,46 +66,48 @@ namespace ComprobadorDePassword2324
         /// <returns>Devuelve un valor, que corresponde al nivel de la fuerza de la contraseña</returns>
         public int test(string contrasenya)
         {
-            password = contrasenya;
-
-            if (password == null || password.Length <= 0)
+            if (contrasenya == null || contrasenya.Length <= 0)
+            {
                 return -1; // Si la contraseña es nula o vacía, devolvemos un código de error
-
-            if (password.Length < 6)
+            }
+            if (contrasenya.Length < 6)
+            {
                 return 0; // No tiene la longitud mínima, error
+            }
+                
 
-
+/*
             bool mins = false;
             bool mays = false;
             bool nums = false;
             bool length = false;
-
-            if (password.Length > 12)
+*/
+            if (contrasenya.Length > 12)
             {
-                length = true;
+                longitud = true;
             }
 
             // Recorremos la cadena buscando minúsculas, mayúsculas y números
             //
-            foreach (char c in password)
+            foreach (char c in contrasenya)
             {
                 if (char.IsLower(c))
                 {
-                    mins = true;
+                    minusculas = true;
                 }
             }
-            foreach (char c in password)
+            foreach (char c in contrasenya)
             {
                 if (char.IsUpper(c))
                 {
-                    mays = true;
+                    mayusculas = true;
                 }
             }
-            foreach (char c in password)
+            foreach (char c in contrasenya)
             {
                 if (char.IsDigit(c))
                 {
-                    nums = true;
+                    numeros = true;
                 }
             }
 
@@ -123,19 +117,19 @@ namespace ComprobadorDePassword2324
             // 2: normal
             // 1: débil
             int fuerzaDeContrasenya = 0;
-            if (mins)
+            if (minusculas)
             {
                 fuerzaDeContrasenya++;
             } 
-            if (mays)
+            if (mayusculas)
             {
                 fuerzaDeContrasenya++;
             }
-            if (nums)
+            if (numeros)
             {
                 fuerzaDeContrasenya++;
             }
-            if (length)
+            if (longitud)
             {
                 fuerzaDeContrasenya++;
             }
