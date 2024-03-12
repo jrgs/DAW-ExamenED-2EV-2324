@@ -21,9 +21,14 @@ namespace ComprobadorDePassword
         private bool length;
 
         //RMB2324 Declarar constantes
-        public const string ERR_CONTRASEÑA_NULA_O_VACIA = "";
-        public const string ERR_CONTRASEÑA_CORTA = "";
+        public const string ERR_CONTRASEÑA_NULA_O_VACIA = "La contraseña no puede estar vacía.";
+        public const string ERR_CONTRASEÑA_CORTA = "La contraseña es demasiado corta.";
 
+        /// <summary>
+        /// <para> Constructor por defecto de la clase.</para>
+        /// <para> Los parámetros se inicializan a false.</para>
+        /// </summary>
+        /// <exception cref="System.ArgumentOutOfRangeException">Devuelve un mensaje en función deltipo de error</exception>
         public RMB2324ComprobadorDePassword()
         {
             try
@@ -38,10 +43,17 @@ namespace ComprobadorDePassword
 
         public string Password { get => password; set => password = value; }
 
-        //RMB2324 Los nombres de los métodos deben ser PasCal
-        public int Test(string p)
+
+        /// <summary>
+        /// Dada una constraseña devuelve si es válida o su fortaleza.
+        /// </summary>
+        /// <param name="password">Valor tipo string que representa una contraseña.</param>
+        /// <returns>La fortaleza de la constraseña.</returns>
+        /// <exception cref="System.ArgumentOutOfRangeException">La contraseña no puede estar vacía.</exception>
+        /// <exception cref="System.ArgumentOutOfRangeException">La contraseña es demasiado corta.</exception>
+        public int Test(string password)
         {
-            Password = p;
+            Password = password;
 
             //RMB2324 Se declaran las variables al inicio del método
             bool mins = false;
