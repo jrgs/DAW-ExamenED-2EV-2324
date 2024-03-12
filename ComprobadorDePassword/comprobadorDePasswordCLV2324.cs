@@ -24,6 +24,8 @@ namespace ComprobadorDePassword
         /// </summary>
 
         public ComprobadorDePasswordCLV2324()
+            ///<summary>Esta clase muestra por booleado si la contraseña suma las carácterísticas para ser segurass
+            ///</summary>
         {
             mins = mays = nums = length = false;
         }
