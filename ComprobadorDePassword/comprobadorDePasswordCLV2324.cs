@@ -9,7 +9,7 @@ namespace ComprobadorDePassword
     using System;
     using System.Text.RegularExpressions;
 
-    public class comprobadorDePassword
+    public class ComprobadorDePasswordCLV2324
     {
         public string pwd;
 
@@ -18,12 +18,12 @@ namespace ComprobadorDePassword
         private bool nums;
         private bool length;
 
-        public comprobadorDePassword()
+        public ComprobadorDePasswordCLV2324()
         {
             mins = mays = nums = length = false;
         }
 
-        public int test(string p)
+        public int Test(string p)
         {
             pwd = p;
 
@@ -34,9 +34,9 @@ namespace ComprobadorDePassword
                 return 0; // No tiene la longitud mínima, error
 
 
-            bool mins = false;
-            bool mays = false;
-            bool nums = false;
+            bool lowerCase = false;
+            bool upperCase = false;
+            bool numbers = false;
             bool length = false;
 
             if (pwd.Length > 12) length = true;
@@ -47,21 +47,21 @@ namespace ComprobadorDePassword
             {
                 if (char.IsLower(c))
                 {
-                    mins=true;
+                    lowerCase=true;
                 }
             }
             foreach (char c in pwd)
             {
                 if (char.IsUpper(c))
                 {
-                    mays=true;
+                    upperCase=true;
                 }
             }
             foreach (char c in pwd)
             {
                 if (char.IsDigit(c))
                 {
-                    nums=true;
+                    numbers=true;
                 }
             }
 
@@ -71,9 +71,9 @@ namespace ComprobadorDePassword
             // 2: normal
             // 1: débil
             int f=0;
-            if (mins) f++;
-            if (mays) f++;
-            if (nums) f++;
+            if (lowerCase) f++;
+            if (upperCase) f++;
+            if (numbers) f++;
             if (length) f++;
 
             return f;
