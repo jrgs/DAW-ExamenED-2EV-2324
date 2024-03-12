@@ -1,4 +1,4 @@
-﻿namespace ComprobadorDePassword
+﻿namespace ComprobadorDePassword2324
 {
     partial class Examen2EVSO2324
     {

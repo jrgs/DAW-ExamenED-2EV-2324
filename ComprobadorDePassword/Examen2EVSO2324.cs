@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ComprobadorDePassword
+namespace ComprobadorDePassword2324
 {
     public partial class Examen2EVSO2324 : Form
     {
@@ -19,7 +19,7 @@ namespace ComprobadorDePassword
 
         private void btnComprobar_click(object sender, EventArgs e)
         {
-            comprobadorDePassword miComprobador = new comprobadorDePassword();
+            ComprobadorDePasswordSO2324 miComprobador = new ComprobadorDePasswordSO2324();
             int resultado = miComprobador.test(txtPassword.Text);
             if (resultado < 0)
                 MessageBox.Show("La contraseña no puede estar vacía");

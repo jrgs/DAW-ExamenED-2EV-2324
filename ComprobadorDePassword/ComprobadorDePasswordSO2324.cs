@@ -4,37 +4,82 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ComprobadorDePassword
+namespace ComprobadorDePassword2324
 {
     using System;
     using System.Text.RegularExpressions;
-
-    public class comprobadorDePassword
+    /// <summary>
+    /// La clase que compruebe el nivel de la fuerza de la contraseña.
+    /// </summary>
+    /// <valor>
+    /// Devuelve un valor, que corresponde al nivel de la fuerza de la contraseña:
+    ///     <list type="table">
+    ///         <item>
+    ///             <description>-1 - contraseña vacía</description>
+    ///         </item>
+    ///         <item>
+    ///             <description>0 - contraseña no cumple los requisitos mínimos de seguridad</description>
+    ///         </item>
+    ///         <item>
+    ///             <description>1 - contraseña débil</description>
+    ///         </item>
+    ///         <item>
+    ///             <description>3 - contraseña normal</description>
+    ///         </item>
+    ///         <item>
+    ///             <description>3 - contraseña fuerte</description>
+    ///         </item>
+    ///         <item>
+    ///             <description>4 - contraseña muy fuerte</description>
+    ///         </item>
+    ///     </list>
+    /// </valor>
+    public class ComprobadorDePasswordSO2324
     {
-        public string Password;
-
-        private bool Minusculas;
-        private bool Mayusculas;
-        private bool Numeros;
-        private bool Longitud;
-
-        public comprobadorDePassword()
+        public string password;
+        /// <summary>
+        /// Propiedad de la clase, que muestra, si la contraseña tiene minúsculas.
+        /// </summary>
+        private bool minusculas;
+        /// <summary>
+        /// Propiedad de la clase, que muestra, si la contraseña tiene mayúsculas.
+        /// </summary>
+        private bool mayusculas;
+        /// <summary>
+        /// Propiedad de la clase, que muestra, si la contraseña tiene símbolos numéricos.
+        /// </summary>
+        private bool numeros;
+        /// <summary>
+        /// Propiedad de la clase, que tiene el valor de la longitud de la contraseña.
+        /// </summary>
+        private bool longitud;
+        /// <summary>
+        /// Función constructora de la clase
+        /// </summary>
+        public bool Minusculas { get => minusculas; set => minusculas=value; }
+        public bool Mayusculas { get => mayusculas; set => mayusculas=value; }
+        public bool Numeros { get => numeros; set => numeros=value; }
+        public bool Longitud { get => longitud; set => longitud=value; }
+        public ComprobadorDePasswordSO2324()
         {
-            //minusculas = mays = numeros = length = false;
-            Minusculas = false;
-            Mayusculas = false;
-            Numeros = false;
-            Longitud = false;
+            minusculas = false;
+            mayusculas = false;
+            numeros = false;
+            longitud = false;
         }
-
+        /// <summary>
+        /// El método de la clase, compruebe la fuerza de la contraseña dada
+        /// </summary>
+        /// <param name="contrasenya"></param>
+        /// <returns>Devuelve un valor, que corresponde al nivel de la fuerza de la contraseña</returns>
         public int test(string contrasenya)
         {
-            Password = contrasenya;
+            password = contrasenya;
 
-            if (Password == null || Password.Length <= 0)
+            if (password == null || password.Length <= 0)
                 return -1; // Si la contraseña es nula o vacía, devolvemos un código de error
 
-            if (Password.Length < 6)
+            if (password.Length < 6)
                 return 0; // No tiene la longitud mínima, error
 
 
@@ -43,28 +88,28 @@ namespace ComprobadorDePassword
             bool nums = false;
             bool length = false;
 
-            if (Password.Length > 12)
+            if (password.Length > 12)
             {
                 length = true;
             }
 
             // Recorremos la cadena buscando minúsculas, mayúsculas y números
             //
-            foreach (char c in Password)
+            foreach (char c in password)
             {
                 if (char.IsLower(c))
                 {
                     mins = true;
                 }
             }
-            foreach (char c in Password)
+            foreach (char c in password)
             {
                 if (char.IsUpper(c))
                 {
                     mays = true;
                 }
             }
-            foreach (char c in Password)
+            foreach (char c in password)
             {
                 if (char.IsDigit(c))
                 {

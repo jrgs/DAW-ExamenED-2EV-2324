@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ComprobadorDePassword.Properties
+namespace ComprobadorDePassword2324.Properties
 {
 
 
