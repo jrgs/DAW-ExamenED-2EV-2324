@@ -1,6 +1,6 @@
 ﻿namespace ComprobadorDePassword
 {
-    partial class Form1
+    partial class Examen2EVMMA2324
     {
         /// <summary>
         /// Variable del diseñador necesaria.

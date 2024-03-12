@@ -9,21 +9,20 @@ namespace ComprobadorDePassword
     using System;
     using System.Text.RegularExpressions;
 
-    public class comprobadorDePassword
+    public class ComprobadorDePasswordMMA2324
     {
         public string pwd;
-
         private bool mins;
         private bool mays;
         private bool nums;
         private bool length;
 
-        public comprobadorDePassword()
+        public ComprobadorDePasswordMMA2324()
         {
             mins = mays = nums = length = false;
         }
 
-        public int test(string p)
+        public int Test(string p)
         {
             pwd = p;
 
@@ -50,6 +49,7 @@ namespace ComprobadorDePassword
                     mins=true;
                 }
             }
+
             foreach (char c in pwd)
             {
                 if (char.IsUpper(c))
@@ -57,6 +57,7 @@ namespace ComprobadorDePassword
                     mays=true;
                 }
             }
+
             foreach (char c in pwd)
             {
                 if (char.IsDigit(c))
@@ -71,10 +72,26 @@ namespace ComprobadorDePassword
             // 2: normal
             // 1: débil
             int f=0;
-            if (mins) f++;
-            if (mays) f++;
-            if (nums) f++;
-            if (length) f++;
+
+            if (mins)
+            {
+                f++;
+            }
+
+            if (mays)
+            {
+                f++;
+            }
+
+            if (nums)
+            {
+                f++;
+            }
+
+            if (length)
+            {
+                f++;
+            }
 
             return f;
         }

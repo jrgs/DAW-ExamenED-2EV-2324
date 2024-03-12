@@ -16,7 +16,7 @@ namespace ComprobadorDePassword
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new Examen2EVMMA2324());
         }
     }
 }
