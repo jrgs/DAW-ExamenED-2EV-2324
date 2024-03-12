@@ -50,11 +50,16 @@ namespace ComprobadorDePassword
 
 
 
-            if (Contraseña.Length > 12)
+            if (Contraseña.Length >= 6)
             {
                 length = true;
             }
 
+            return ComprobarFortaleza(ref mins, ref mays, ref nums, length);
+        }
+
+        private int ComprobarFortaleza(ref bool mins, ref bool mays, ref bool nums, bool length)
+        {
             // Recorremos la cadena buscando minúsculas, mayúsculas y números
             //
             foreach (char c in Contraseña)
