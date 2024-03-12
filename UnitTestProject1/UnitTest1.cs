@@ -17,7 +17,7 @@ namespace UnitTestProject1
             ComprobadorDePasswordATMS2324 prueba = new ComprobadorDePasswordATMS2324 ();
 
             // funcion a probar
-            int resultado = prueba.test(cadena);
+            int resultado = prueba.Test(cadena);
 
             // Assert
             Assert.AreEqual(resultado, password);
@@ -34,7 +34,7 @@ namespace UnitTestProject1
             ComprobadorDePasswordATMS2324 prueba = new ComprobadorDePasswordATMS2324();
 
             // funcion a probar
-            int resultado = prueba.test(cadena);
+            int resultado = prueba.Test(cadena);
 
             // Assert
             Assert.AreEqual(resultado, password);
@@ -50,7 +50,7 @@ namespace UnitTestProject1
             ComprobadorDePasswordATMS2324 prueba = new ComprobadorDePasswordATMS2324();
 
             // funcion a probar
-            int resultado = prueba.test(cadena);
+            int resultado = prueba.Test(cadena);
 
             // Assert
             Assert.AreEqual(resultado, password);

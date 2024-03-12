@@ -11,7 +11,9 @@ namespace ComprobadorDePassword
 
     public class ComprobadorDePasswordATMS2324
     {
-        public string password;
+        private string password;
+        public const int passwordNula = -1;
+        public const int passwordInferior = 0;
 
         private bool minusculas;
         private bool mayusculas;
@@ -26,50 +28,56 @@ namespace ComprobadorDePassword
             longitud = false;
         }
 
-        public int test(string p)
+        public string Password 
+        { 
+            get => password; 
+            set => password = value; 
+        }
+
+        public int Test(string p)
         {
-            password = p;
+            Password = p;
 
-            if (password == null || password.Length <= 0)
+            if (Password == null || Password.Length <= 0)
                 { 
-                    return -1; // Si la contraseña es nula o vacía, devolvemos un código de error
+                    return passwordNula; // Si la contraseña es nula o vacía, devolvemos un código de error
                 }
-            if (password.Length < 6)
+            if (Password.Length < 6)
                 { 
-                    return 0; // No tiene la longitud mínima, error
+                    return passwordInferior; // No tiene la longitud mínima, error
                 }
 
-            bool mins = false;
-            bool mays = false;
-            bool nums = false;
-            bool length = false;
+            //bool minusculas = false;
+            //bool mayusculas = false;
+            //bool numeros = false;
+            //bool longitud = false;
 
-            if (password.Length > 12)
+            if (Password.Length > 12)
             {
-                length = true;
+                longitud = true;
             }
 
             // Recorremos la cadena buscando minúsculas, mayúsculas y números
             //
-            foreach (char c in password)
+            foreach (char c in Password)
             {
                 if (char.IsLower(c))
                 {
-                    mins = true;
+                    minusculas = true;
                 }
             }
-            foreach (char c in password)
+            foreach (char c in Password)
             {
                 if (char.IsUpper(c))
                 {
-                    mays = true;
+                    mayusculas = true;
                 }
             }
-            foreach (char c in password)
+            foreach (char c in Password)
             {
                 if (char.IsDigit(c))
                 {
-                    nums = true;
+                    numeros = true;
                 }
             }
 
@@ -79,19 +87,19 @@ namespace ComprobadorDePassword
             // 2: normal
             // 1: débil
             int fortaleza=0;
-            if (mins)
+            if (minusculas)
             {
                 fortaleza++;
             }
-            if (mays)
+            if (mayusculas)
             {
                 fortaleza++;
             }
-            if (nums)
+            if (numeros)
             {
                 fortaleza++;
             }
-            if (length)
+            if (longitud)
             {
                 fortaleza++;
             }
