@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Diagnostics.Contracts;
+using ComprobadrDePassword;
 
 namespace comprobadorDePassword_test_EV2324
 {
@@ -14,7 +15,8 @@ namespace comprobadorDePassword_test_EV2324
 
         public void ComprobarPassword(string password)
         {
-            ComprobadorDePassword prueba = new ComprobadorDePassword();
+            comprobadorDePassword comprobadorDePassword = new comprobadorDePassword();
+            comprobadorDePassword.Comprobar 
         }
     }
 }

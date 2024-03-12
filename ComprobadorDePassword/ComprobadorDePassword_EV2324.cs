@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ComprobadorDePassword
+namespace ComprobadrDePassword
 {
     using System;
     using System.Text.RegularExpressions;
@@ -19,11 +19,25 @@ namespace ComprobadorDePassword
         private bool _numeros;
         private bool _longitud;
 
+        /// <summary>
+        /// Constructor que asigna el valor de propiedades
+        /// </summary>
         public comprobadorDePassword()
         {
-            _minusculas = _mayusculas = _numeros = _longitud = false;
+            Minusculas = Mayusculas = Numeros = Longitud = false;
         }
 
+        public bool Minusculas { get => _minusculas; set => _minusculas = value; }
+        public bool Mayusculas { get => _mayusculas; set => _mayusculas = value; }
+        public bool Numeros { get => _numeros; set => _numeros = value; }
+        public bool Longitud { get => _longitud; set => _longitud = value; }
+
+        /// <summary>
+        /// <para>Metodo que comprueba si la contraseña es valida </para>
+        /// <para>y define el nivel de su fortaleza</para>>
+        /// </summary>
+        /// <param name="contrasenya"> String con el valor de contraseña introducida</param>
+        /// <returns>Un entero de 1 a 4 según el nivel de fortaleza </returns>
         public int Comprobar(string contrasenya)
         {
             _password = contrasenya;
