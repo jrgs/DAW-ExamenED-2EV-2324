@@ -9,7 +9,7 @@ namespace ComprobadorDePassword
     using System;
     using System.Text.RegularExpressions;
 
-    public class comprobadorDePassword
+    public class comprobadorDePasswordATMS2324
     {
         public string pwd;
 
@@ -18,7 +18,7 @@ namespace ComprobadorDePassword
         private bool nums;
         private bool length;
 
-        public comprobadorDePassword()
+        public comprobadorDePasswordATMS2324()
         {
             mins = mays = nums = length = false;
         }
