@@ -9,6 +9,7 @@ namespace TestContraseñaMINB2324
         [TestMethod]
         public void ContrasenyaVacia()
             {
+                
             }
         [TestMethod]
         public void ContraseyaABC()

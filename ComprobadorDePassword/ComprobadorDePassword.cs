@@ -29,11 +29,11 @@ namespace ComprobadorDePassword
 
             if (password == null || password.Length <= 0)
             {
-                return -1; // Si la contraseña es nula o vacía, devolvemos un código de error
+                throw new ArgumentNullException("La contraseña es nula o vacía");
             }
             if (password.Length < 6)
             {
-                return 0; // No tiene la longitud mínima, error
+                throw new ArgumentNullException("La contraseña es nula o vacía");
             }
 
 
@@ -52,20 +52,14 @@ namespace ComprobadorDePassword
                 {
                     minusculas = true;
                 }
-            }
-            foreach (char cadena in password)
-            {
-                if (char.IsUpper(cadena))
-                {
-                    mayusculas = true;
-                }
-            }
-            foreach (char cadena in password)
-            {
-                if (char.IsDigit(cadena))
-                {
+                else if (char.IsUpper(cadena)) 
+                    {
+                        mayusculas = true;
+                    }
+                else if (char.IsDigit(cadena))
+                    {
                     numeros = true;
-                }
+                    }
             }
 
             // Calculamos el nivel de fortaleza
