@@ -9,28 +9,30 @@ namespace ComprobadorDePassword
     using System;
     using System.Text.RegularExpressions;
 
-    public class comprobadorDePassword
+    public class ComprobadorDePasswordAPG2324
     {
-        public string pwd;
+        public string contrasenya;
 
-        private bool mins;
-        private bool mays;
-        private bool nums;
-        private bool length;
+        private bool minusculas;
+        private bool mayusculas;
+        private bool numeros;
+        private bool longitud;
 
-        public comprobadorDePassword()
+        public ComprobadorDePasswordAPG2324()
         {
-            mins = mays = nums = length = false;
+            minusculas = mayusculas = numeros = longitud = false;
         }
 
-        public int test(string p)
+        public int Test(string p)
         {
-            pwd = p;
+            contrasenya = p;
 
-            if (pwd==null || pwd.Length<=0)
+            if (contrasenya == null || contrasenya.Length <= 0)
+            {
                 return -1; // Si la contraseña es nula o vacía, devolvemos un código de error
+            }
 
-            if (pwd.Length < 6)
+            if (contrasenya.Length < 6)
                 return 0; // No tiene la longitud mínima, error
 
 
@@ -39,25 +41,30 @@ namespace ComprobadorDePassword
             bool nums = false;
             bool length = false;
 
-            if (pwd.Length > 12) length = true;
+            if (contrasenya.Length > 12)
+            {
+                length = true;
+            }
 
             // Recorremos la cadena buscando minúsculas, mayúsculas y números
             //
-            foreach (char c in pwd)
+            foreach (char c in contrasenya)
             {
                 if (char.IsLower(c))
                 {
                     mins=true;
                 }
             }
-            foreach (char c in pwd)
+
+            foreach (char c in contrasenya)
             {
                 if (char.IsUpper(c))
                 {
                     mays=true;
                 }
             }
-            foreach (char c in pwd)
+
+            foreach (char c in contrasenya)
             {
                 if (char.IsDigit(c))
                 {

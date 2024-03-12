@@ -1,6 +1,6 @@
 ﻿namespace ComprobadorDePassword
 {
-    partial class Form1
+    partial class Examen2EvAPG2324
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -74,6 +74,7 @@
             this.Controls.Add(this.txtPassword);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
