@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ComprobadorDePassword
 {
-    internal class Class1
+    internal class ClasePrueba
     {
         [TestMethod]    //KEJ 
         public void ContraseñaVacia()
