@@ -69,7 +69,7 @@ namespace ComprobadorDePassword
             {
                 if (char.IsDigit(c))
                 {
-                    nums=true;
+                    nums = true;
                 }
             }
 
