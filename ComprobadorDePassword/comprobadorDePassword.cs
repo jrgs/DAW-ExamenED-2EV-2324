@@ -20,6 +20,11 @@ namespace ComprobadorDePassword
         private bool numeros;
         private bool longitud;
 
+        /// <summary>
+        /// Constructor de la clase al que no se le pasan parámetros.
+        /// </summary>
+        /// <remarks>A los cuatro campos booleanos se les asigna el valor false</remarks>
+        /// 
         public ComprobadorDePasswordATMS2324()
         {
             minusculas = false;
@@ -33,7 +38,16 @@ namespace ComprobadorDePassword
             get => password; 
             set => password = value; 
         }
-
+        /// <summary>
+        /// Evalúa la fortaleza de la contraseña introducida.
+        /// </summary>
+        /// <remarks>
+        /// <para>En primer lugar evalúa si la contraseña cumple unos requisitos mínimos: que no sea nula, 
+        /// que no sea una cadena vacía y que tenga un mínimo de 6 caracteres.</para>
+        /// <para>Si la contraseña cumple los requisitos mínimos, entonces se evalúa su fortaleza.</para>
+        /// </remarks>
+        /// <param name="p">Cadena de caracteres que representa la contraseña cuya fortaleza se evalúa en el método</param>
+        /// <returns></returns>
         public int Test(string p)
         {
             Password = p;
