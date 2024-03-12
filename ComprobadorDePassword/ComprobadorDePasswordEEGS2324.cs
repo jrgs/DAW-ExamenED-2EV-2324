@@ -10,11 +10,16 @@ namespace ComprobadorDePassword
     using System.Text.RegularExpressions;
     using System.Windows.Forms;
 
+    /// <summary>
+    /// Clase que comprueba lo fuerte que es una contraseña
+    /// </summary>
     public class ComprobadorDePasswordEEGS2324
     {
-        
+        /// <summary>
+        /// Miembros de la clase
+        /// </summary>
         public string password; 
-
+       
         private bool minuscula;
         private bool mayuscula;
         private bool numeros;
@@ -22,6 +27,9 @@ namespace ComprobadorDePassword
         private const string PASSWORD_SIN_CARACTERES = "El password no tiene caracteres";
         private const string PASSWORD_CORTO = "El password no es válido";
 
+        /// <summary>
+        /// Propiedades de la clase
+        /// </summary>
         public bool Minuscula 
         
         {
@@ -47,7 +55,9 @@ namespace ComprobadorDePassword
 
             set { longitud = value; }
         }
-
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public ComprobadorDePasswordEEGS2324()
         {
             Minuscula = false;
@@ -55,7 +65,13 @@ namespace ComprobadorDePassword
             Numeros = false;
             Longitud = false;
         }
-
+        /// <summary>
+        /// Método que devuelve si una contraseña es válida
+        /// </summary>
+        /// <param name="password">Contraseña que queremos probar</param>
+        /// <returns></returns>
+        /// <exception cref="Exception(PASSWORD_SIN_CARACTERES)" >Devuelve una excepción si no hay caracteres</exception>
+        /// <exception cref="Exception(PASSWORD_CORTO)">Devuelve una excepción si es corto</exception>
         private bool ContrasenyaValidar(string password)
         {
             bool correcto = true;
@@ -68,7 +84,11 @@ namespace ComprobadorDePassword
 
             return correcto;
         }
-
+        /// <summary>
+        /// Comprueba si es válida la contraseña
+        /// </summary>
+        /// <param name="password"></param>
+        /// <returns></returns>
         public int Test(string password)
         {
             this.password = password;
