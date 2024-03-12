@@ -1,6 +1,6 @@
 ﻿namespace ComprobadorDePassword
 {
-    partial class Form1
+    partial class Examen2EVEEGS2324
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -64,15 +64,15 @@
             this.btnComprobar.UseVisualStyleBackColor = false;
             this.btnComprobar.Click += new System.EventHandler(this.btnComprobar_click);
             // 
-            // Form1
+            // Examen2EVEEGS2324
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(765, 261);
+            this.ClientSize = new System.Drawing.Size(562, 259);
             this.Controls.Add(this.btnComprobar);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtPassword);
-            this.Name = "Form1";
+            this.Name = "Examen2EVEEGS2324";
             this.Text = "Form1";
             this.ResumeLayout(false);
             this.PerformLayout();

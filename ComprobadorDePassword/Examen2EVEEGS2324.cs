@@ -10,17 +10,17 @@ using System.Windows.Forms;
 
 namespace ComprobadorDePassword
 {
-    public partial class Form1 : Form
+    public partial class Examen2EVEEGS2324 : Form
     {
-        public Form1()
+        public Examen2EVEEGS2324()
         {
             InitializeComponent();
         }
 
         private void btnComprobar_click(object sender, EventArgs e)
         {
-            comprobadorDePassword miComprobador = new comprobadorDePassword();
-            int resultado = miComprobador.test(txtPassword.Text);
+            ComprobadorDePasswordEEGS2324 miComprobador = new ComprobadorDePasswordEEGS2324();
+            int resultado = miComprobador.Test(txtPassword.Text);
             if (resultado < 0)
                 MessageBox.Show("La contraseña no puede estar vacía");
             if (resultado == 0)
