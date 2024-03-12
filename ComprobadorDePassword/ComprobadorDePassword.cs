@@ -23,7 +23,7 @@ namespace ComprobadorDePassword
             mins = mays = nums = length = false;
         }
 
-        public int test(string p)
+        public int Test(string p)
         {
             pwd = p;
 
@@ -32,7 +32,6 @@ namespace ComprobadorDePassword
 
             if (pwd.Length < 6)
                 return 0; // No tiene la longitud mínima, error
-
 
             bool mins = false;
             bool mays = false;
@@ -78,5 +77,6 @@ namespace ComprobadorDePassword
 
             return f;
         }
+
     }
 }
